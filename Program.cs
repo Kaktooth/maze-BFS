@@ -45,7 +45,7 @@ namespace maze_BFS
             string[,] Maze = maze;
             int startX = 0;
             int startY = 0;
-            int counter = 0;
+            int counter = 1;
             for (int i = 0; i < Maze.GetLength(0); i++)
             {
                 for (int j = 0; j < Maze.GetLength(1); j++)
@@ -67,35 +67,31 @@ namespace maze_BFS
                 if (Maze[startX + 1, startY] == ".")
                 {
                     int nextX = startX + 1;
-                    int nextY = startY;
-                    counter++;
+                    int nextY = startY;   
                     Maze[startX + 1, startY] = counter.ToString();
 
-                    FindWay(Maze, nextX, nextY, counter);
+                    FindWay(Maze, nextX, nextY, counter+1);
                 }
                 if (Maze[startX - 1, startY] == ".")
                 {
                     int nextX = startX - 1;
                     int nextY = startY;
-                    counter++;
                     Maze[startX - 1, startY] = counter.ToString();
-                    FindWay(Maze, nextX, nextY, counter);
+                    FindWay(Maze, nextX, nextY, counter+1);
                 }
                 if (Maze[startX, startY - 1] == ".")
                 {
                     int nextX = startX;
                     int nextY = startY - 1;
-                    counter++;
                     Maze[startX, startY - 1] = counter.ToString();
-                    FindWay(Maze, nextX, nextY, counter);
+                    FindWay(Maze, nextX, nextY, counter+1);
                 }
                 if (Maze[startX, startY + 1] == ".")
                 {
                     int nextX = startX;
                     int nextY = startY + 1;
-                    counter++;
                     Maze[startX, startY + 1] = counter.ToString();
-                    FindWay(Maze, nextX, nextY, counter);
+                    FindWay(Maze, nextX, nextY, counter+1);
                 }
             }
             catch (Exception e)
